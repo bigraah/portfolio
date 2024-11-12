@@ -17,22 +17,25 @@
                 0 10px 1px -4px rgba(0,0,0,0.15),
                 0 20px 0 -10px #eee,
                 0 20px 1px -9px rgba(0,0,0,0.15);
-            width: min(90vw, 800px);
+            width: min(95vw, 1000px);
             margin: 2rem auto;
         }
 
         #pdf-viewer {
             width: 100%;
-            height: clamp(400px, 80vh, 2000px);
+            min-height: clamp(600px, 90vh, 1200px);
             background: #f8f9fa;
             border-radius: 4px;
-            overflow: hidden;
+            overflow-y: auto; /* Allow scrolling */
             position: relative;
         }
 
-        #pdf-viewer canvas {
+        #pdf-canvas {
+            display: block;
+            margin: 0 auto;
             max-width: 100%;
-            height: auto;
+            width: auto !important; /* Override PDF.js inline styles */
+            height: auto !important; /* Override PDF.js inline styles */
         }
 
         .viewer-controls {
@@ -53,10 +56,6 @@
             .book-container {
                 margin: 1rem auto;
                 padding: 15px;
-            }
-            
-            #pdf-viewer {
-                height: clamp(300px, 60vh, 600px);
             }
         }
     </style>
@@ -120,9 +119,11 @@
                 const canvas = document.getElementById('pdf-canvas');
                 const ctx = canvas.getContext('2d');
 
+                // Set canvas dimensions to match viewport
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
 
+                // Render PDF page
                 const renderContext = {
                     canvasContext: ctx,
                     viewport: viewport
@@ -162,9 +163,21 @@
             queueRenderPage(pageNum);
         }
 
+        // Scale canvas size based on container width
+        function adjustScale() {
+            const container = document.getElementById('pdf-viewer');
+            const containerWidth = container.clientWidth - 40; // Account for padding
+            scale = containerWidth / 1000; // Adjust base width as needed
+            if (pdfDoc) {
+                renderPage(pageNum);
+            }
+        }
+
+        // Initialize PDF
         pdfjsLib.getDocument('Book.pdf').promise.then(function(pdfDoc_) {
             pdfDoc = pdfDoc_;
-            renderPage(pageNum);
+            adjustScale(); // Set initial scale
+            window.addEventListener('resize', adjustScale); // Adjust on window resize
         });
 
         // Add touch swipe support
@@ -179,7 +192,7 @@
             const touchendX = e.changedTouches[0].screenX;
             const diff = touchstartX - touchendX;
 
-            if (Math.abs(diff) > 50) { // Minimum swipe distance
+            if (Math.abs(diff) > 50) {
                 if (diff > 0) {
                     nextPage();
                 } else {
