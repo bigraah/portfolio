@@ -38,39 +38,24 @@
             from { opacity: 1; transform: translateY(0); }
             to { opacity: 0; transform: translateY(-20px); }
         }
-
-        .work-card {
-            transition: all 0.3s ease;
-        }
-
-        .work-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .icon-container {
-            transition: all 0.3s ease;
-        }
-
-        .work-card:hover .icon-container {
-            transform: scale(1.1);
-        }
     </style>
 </head>
 <body class="bg-gray-50">
+
     <nav class="p-2 sm:p-4">
         <div class="max-w-5xl mx-auto flex justify-between">
-            <a href="#" class="font-bold text-lg sm:text-xl">Home</a>
-            <div>
-                <a href="#work" class="mx-2 sm:mx-4 text-sm sm:text-base">Work</a>
+            <a href="index.html" class="font-bold text-lg sm:text-xl">Home</a>
+            <div class="flex space-x-4">
+                <a href="my_work.html" class="text-sm sm:text-base">My Work</a>
                 <a href="#contact" class="text-sm sm:text-base">Contact</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto p-2 sm:p-4">
-        <div class="text-center">
-            <div class="w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-4 sm:mb-8 rounded-full overflow-hidden fade-in">
+    <main class="max-w-5xl mx-auto p-2 sm:p-4 flex flex-col sm:flex-row items-center">
+        <!-- Right Side with Image, Name, Role, Punch Line, Buttons -->
+        <div class="w-full sm:w-1/2 p-2 sm:p-4 text-center sm:text-left">
+            <div class="w-32 h-32 sm:w-48 sm:h-48 mx-auto sm:mx-0 mb-4 sm:mb-8 rounded-full overflow-hidden fade-in">
                 <img src="IMG_0229.jpg" alt="Bigrah Prasad Panda" class="w-full h-full object-cover">
             </div>
             <h1 class="text-3xl sm:text-4xl font-bold mb-2 sm:mb-4 fade-in delay-1">Bigrah Prasad Panda</h1>
@@ -82,7 +67,7 @@
             <p class="text-base sm:text-lg mb-4 sm:mb-8 fade-in delay-2">I research, I write and I edit (no Oxford comma gang)</p>
 
             <!-- Buttons section -->
-            <div class="flex justify-center space-x-2 sm:space-x-4 fade-in delay-3">
+            <div class="flex justify-center sm:justify-start space-x-2 sm:space-x-4 fade-in delay-3">
                 <a href="https://calendar.app.google/bL6NT9DxFy8cZPnX7" 
                    class="bg-blue-600 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-lg hover:bg-blue-700 inline-block text-sm sm:text-base">
                     Let's Talk
@@ -94,75 +79,30 @@
             </div>
         </div>
 
-        <section id="work" class="max-w-5xl mx-auto px-2 sm:px-4 py-10 sm:py-20">
-            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 fade-in">My Work</h2>
-            <div class="grid gap-6 sm:gap-8 sm:grid-cols-2">
-                <a href="long-form.html" class="work-card bg-white rounded-xl shadow-sm p-4 sm:p-8 fade-in delay-1">
-                    <div class="flex items-start gap-3 sm:gap-4">
-                        <div class="icon-container w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-blue-100 flex items-center justify-center">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Long Form Content</h3>
-                            <p class="text-gray-600 text-sm sm:text-base mb-2 sm:mb-4">Created comprehensive content (600-4000 words) for over 100 clients across diverse industries - from AI companies to Plumbing services.</p>
-                            <div class="flex flex-wrap gap-1 sm:gap-2">
-                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-blue-50 text-blue-600 rounded-full text-xs sm:text-sm">Technical Writing</span>
-                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-blue-50 text-blue-600 rounded-full text-xs sm:text-sm">Blog Posts</span>
-                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-blue-50 text-blue-600 rounded-full text-xs sm:text-sm">Case Studies</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="short-form.html" class="work-card bg-white rounded-xl shadow-sm p-4 sm:p-8 fade-in delay-2">
-                    <div class="flex items-start gap-3 sm:gap-4">
-                        <div class="icon-container w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-purple-100 flex items-center justify-center">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Short Form Content</h3>
-                            <p class="text-gray-600 text-sm sm:text-base mb-2 sm:mb-4">Specializing in concise, impactful writing for modern platforms and marketing needs.</p>
-                            <div class="flex flex-wrap gap-1 sm:gap-2">
-                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-purple-50 text-purple-600 rounded-full text-xs sm:text-sm">Social Media</span>
-                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-purple-50 text-purple-600 rounded-full text-xs sm:text-sm">Email Campaigns</span>
-                                <span class="px-2 py-1 sm:px-3 sm:py-1 bg-purple-50 text-purple-600 rounded-full text-xs sm:text-sm">Push Notifications</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-10 sm:py-20">
-            <div class="max-w-xl mx-auto px-2 sm:px-4">
-                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-8">Get in Touch</h2>
-                <form action="https://formspree.io/f/xwpkblyz" method="POST" class="bg-white rounded-xl shadow-sm p-4 sm:p-8 fade-in">
-                    <div class="mb-4 sm:mb-6">
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">Name</label>
-                        <input type="text" id="name" name="name" required
-                               class="w-full px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-                    </div>
-                    <div class="mb-4 sm:mb-6">
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">Email</label>
-                        <input type="email" id="email" name="email" required
-                               class="w-full px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-                    </div>
-                    <div class="mb-4 sm:mb-6">
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">Message</label>
-                        <textarea id="message" name="message" rows="4" required
-                                  class="w-full px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
-                    </div>
-                    <button type="submit" 
-                            class="w-full bg-blue-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-blue-700 transition text-sm sm:text-base">
-                        Send Message
-                    </button>
-                </form>
-            </div>
+        <!-- Contact Form on Right -->
+        <section id="contact" class="w-full sm:w-1/2 p-2 sm:p-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-8 text-center sm:text-left">Get in Touch</h2>
+            <form action="https://formspree.io/f/xwpkblyz" method="POST" class="bg-white rounded-xl shadow-sm p-4 sm:p-8 fade-in">
+                <div class="mb-4 sm:mb-6">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">Name</label>
+                    <input type="text" id="name" name="name" required
+                           class="w-full px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                </div>
+                <div class="mb-4 sm:mb-6">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">Email</label>
+                    <input type="email" id="email" name="email" required
+                           class="w-full px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                </div>
+                <div class="mb-4 sm:mb-6">
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" required
+                              class="w-full px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
+                </div>
+                <button type="submit" 
+                        class="w-full bg-blue-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-blue-700 transition text-sm sm:text-base">
+                    Send Message
+                </button>
+            </form>
         </section>
     </main>
 
