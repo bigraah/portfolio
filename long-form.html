@@ -3,60 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book - Bigrah's Portfolio</title>
+    <title>Bigrah's Portfolio - Long Form Content</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <style>
-        .book-container {
-            background: white;
-            padding: clamp(15px, 4vw, 40px);
-            border-radius: 5px;
-            box-shadow: 
-                0 1px 1px rgba(0,0,0,0.15),
-                0 10px 0 -5px #eee,
-                0 10px 1px -4px rgba(0,0,0,0.15),
-                0 20px 0 -10px #eee,
-                0 20px 1px -9px rgba(0,0,0,0.15);
-            width: min(95vw, 1000px);
-            margin: 2rem auto;
+        .content-tile {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-
-        #pdf-viewer {
-            width: 100%;
-            min-height: clamp(600px, 90vh, 1200px);
-            background: #f8f9fa;
-            border-radius: 4px;
-            overflow-y: auto; /* Allow scrolling */
-            position: relative;
-        }
-
-        #pdf-canvas {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            width: auto !important; /* Override PDF.js inline styles */
-            height: auto !important; /* Override PDF.js inline styles */
-        }
-
-        .viewer-controls {
-            position: sticky;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(5px);
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            z-index: 10;
-        }
-
-        @media (max-width: 640px) {
-            .book-container {
-                margin: 1rem auto;
-                padding: 15px;
-            }
+        .content-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -71,135 +26,68 @@
         </div>
     </nav>
 
-    <!-- Modern PDF Viewer -->
-    <div class="book-container">
-        <div id="pdf-viewer">
-            <canvas id="pdf-canvas"></canvas>
-            <div class="viewer-controls">
-                <button onclick="prevPage()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Previous</button>
-                <span id="page-num" class="self-center"></span>
-                <button onclick="nextPage()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Next</button>
-            </div>
-        </div>
-    </div>
-
+    <!-- Short Form Content Section -->
     <main class="max-w-5xl mx-auto px-4 py-8 md:py-12">
-        <!-- Long Form Content Section -->
-        <div class="bg-white rounded-xl shadow-sm p-4 md:p-8">
-            <h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Long Form Content</h1>
-            <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">API Documentation</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">Technical Guides</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">User Manuals</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">Tech Blogs</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">Industry Analysis</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">Case Studies</span>
-            </div>
-            <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                <p class="text-gray-700">
-                    [Your detailed explanation about long form content work will go here]
-                </p>
-            </div>
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">Long Form Content</h1>
+        
+        <!-- Short Form Content Tiles Grid -->
+        <div id="content-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Dynamic content tiles will be inserted here -->
         </div>
     </main>
 
     <script>
-        let pdfDoc = null,
-            pageNum = 1,
-            pageRendering = false,
-            pageNumPending = null,
-            scale = 1.5;
+        // Array of short form content data with added link property
+        const shortFormContent = [
+            { title: "Blog Post 1", description: "A brief overview of technology advancements.", image: "shortform1.jpg", link: "blog1.html" },
+            { title: "Blog Post 2", description: "Exploring new trends in healthcare.", image: "shortform2.jpg", link: "blog2.html" },
+            { title: "Blog Post 3", description: "The future of marketing strategies.", image: "shortform3.jpg", link: "blog3.html" },
+            { title: "Blog Post 4", description: "A look at industry case studies.", image: "shortform4.jpg", link: "blog4.html" },
+            { title: "Blog Post 5", description: "Understanding modern advertising techniques.", image: "shortform5.jpg", link: "blog5.html" },
+            { title: "Blog Post 6", description: "Insights on data-driven marketing.", image: "shortform6.jpg", link: "blog6.html" },
+            { title: "Blog Post 7", description: "Exploring trends in real estate.", image: "shortform7.jpg", link: "blog7.html" },
+            { title: "Blog Post 8", description: "Technological innovations in finance.", image: "shortform8.jpg", link: "blog8.html" },
+            { title: "Blog Post 9", description: "What’s next in sustainable architecture?", image: "shortform9.jpg", link: "blog9.html" },
+            { title: "Blog Post 10", description: "A guide to effective content marketing.", image: "shortform10.jpg", link: "blog10.html" },
+            { title: "Blog Post 11", description: "Understanding the basics of UX design.", image: "shortform11.jpg", link: "blog11.html" },
+            { title: "Blog Post 12", description: "The impact of AI on modern industries.", image: "shortform12.jpg", link: "blog12.html" },
+            { title: "Blog Post 13", description: "How digital transformation is shaping business.", image: "shortform13.jpg", link: "blog13.html" },
+            { title: "Blog Post 14", description: "An overview of new tech startups.", image: "shortform14.jpg", link: "blog14.html" },
+            { title: "Blog Post 15", description: "The rise of remote working in 2024.", image: "shortform15.jpg", link: "blog15.html" },
+            { title: "Blog Post 16", description: "Trends in social media marketing.", image: "shortform16.jpg", link: "blog16.html" },
+            { title: "Blog Post 17", description: "Designing efficient business strategies.", image: "shortform17.jpg", link: "blog17.html" },
+            { title: "Blog Post 18", description: "Exploring content creation for brands.", image: "shortform18.jpg", link: "blog18.html" },
+            { title: "Blog Post 19", description: "What we learned from recent case studies.", image: "shortform19.jpg", link: "blog19.html" },
+            { title: "Blog Post 20", description: "Latest insights in e-commerce growth.", image: "shortform20.jpg", link: "blog20.html" },
+            { title: "Blog Post 21", description: "The power of personal branding.", image: "shortform21.jpg", link: "blog21.html" },
+        ];
 
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        // Function to render the short form content tiles
+        function renderShortFormContent() {
+            const gridContainer = document.getElementById("content-grid");
 
-        function renderPage(num) {
-            pageRendering = true;
-            pdfDoc.getPage(num).then(function(page) {
-                const viewport = page.getViewport({scale: scale});
-                const canvas = document.getElementById('pdf-canvas');
-                const ctx = canvas.getContext('2d');
+            // Loop through the shortFormContent array
+            shortFormContent.forEach(content => {
+                // Create a new content tile element wrapped in an anchor
+                const contentTile = document.createElement("a");
+                contentTile.href = content.link; // Set the link for the content
+                contentTile.target = "_blank"; // Opens the link in a new tab
+                contentTile.classList.add("content-tile", "bg-white", "rounded-lg", "shadow-md", "p-4", "text-center", "block");
 
-                // Set canvas dimensions to match viewport
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
+                // Set the inner HTML of the content tile
+                contentTile.innerHTML = `
+                    <img src="${content.image}" alt="${content.title} Image" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">${content.title}</h2>
+                    <p class="text-gray-600">${content.description}</p>
+                `;
 
-                // Render PDF page
-                const renderContext = {
-                    canvasContext: ctx,
-                    viewport: viewport
-                };
-
-                const renderTask = page.render(renderContext);
-
-                renderTask.promise.then(function() {
-                    pageRendering = false;
-                    if (pageNumPending !== null) {
-                        renderPage(pageNumPending);
-                        pageNumPending = null;
-                    }
-                });
+                // Append the content tile to the grid container
+                gridContainer.appendChild(contentTile);
             });
-
-            document.getElementById('page-num').textContent = `Page ${num} of ${pdfDoc.numPages}`;
         }
 
-        function queueRenderPage(num) {
-            if (pageRendering) {
-                pageNumPending = num;
-            } else {
-                renderPage(num);
-            }
-        }
-
-        function prevPage() {
-            if (pageNum <= 1) return;
-            pageNum--;
-            queueRenderPage(pageNum);
-        }
-
-        function nextPage() {
-            if (pageNum >= pdfDoc.numPages) return;
-            pageNum++;
-            queueRenderPage(pageNum);
-        }
-
-        // Scale canvas size based on container width
-        function adjustScale() {
-            const container = document.getElementById('pdf-viewer');
-            const containerWidth = container.clientWidth - 40; // Account for padding
-            scale = containerWidth / 1000; // Adjust base width as needed
-            if (pdfDoc) {
-                renderPage(pageNum);
-            }
-        }
-
-        // Initialize PDF
-        pdfjsLib.getDocument('Book.pdf').promise.then(function(pdfDoc_) {
-            pdfDoc = pdfDoc_;
-            adjustScale(); // Set initial scale
-            window.addEventListener('resize', adjustScale); // Adjust on window resize
-        });
-
-        // Add touch swipe support
-        let touchstartX = 0;
-        const viewer = document.getElementById('pdf-viewer');
-        
-        viewer.addEventListener('touchstart', e => {
-            touchstartX = e.changedTouches[0].screenX;
-        });
-
-        viewer.addEventListener('touchend', e => {
-            const touchendX = e.changedTouches[0].screenX;
-            const diff = touchstartX - touchendX;
-
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                    nextPage();
-                } else {
-                    prevPage();
-                }
-            }
-        });
+        // Call the function to render content when the page loads
+        renderShortFormContent();
     </script>
 </body>
 </html>

@@ -3,64 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Short Form Content - Bigrah's Portfolio</title>
+    <title>Bigrah's Portfolio - Short Form Content</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .content-tile {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .content-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body class="bg-gradient-to-b from-gray-50 to-white min-h-screen">
     <!-- Navbar -->
-    <nav class="bg-white shadow-sm">
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="text-xl font-bold text-gray-800">BPP</a>
-                <a href="index.html" class="text-gray-600 hover:text-purple-600 transition">← Back to Home</a>
+                <a href="index.html" class="text-gray-600 hover:text-blue-600 transition">← Back to Home</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto px-4 py-12">
-        <h1 class="text-4xl font-bold mb-8">Short Form Content</h1>
-
-        <!-- Sample Projects -->
-        <div class="space-y-8">
-            <!-- Social Media -->
-            <div class="bg-white rounded-xl shadow-sm p-8">
-                <h2 class="text-2xl font-semibold mb-4">Social Media Content</h2>
-                <p class="text-gray-600 mb-4">
-                    Crafted engaging social media content for various platforms, driving engagement and brand awareness.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">LinkedIn</span>
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">Twitter</span>
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">Instagram</span>
-                </div>
-            </div>
-
-            <!-- Email Campaigns -->
-            <div class="bg-white rounded-xl shadow-sm p-8">
-                <h2 class="text-2xl font-semibold mb-4">Email Marketing</h2>
-                <p class="text-gray-600 mb-4">
-                    Developed email campaigns with high open rates and strong conversion metrics.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">Newsletters</span>
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">Drip Campaigns</span>
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">Product Launches</span>
-                </div>
-            </div>
-
-            <!-- Push Notifications -->
-            <div class="bg-white rounded-xl shadow-sm p-8">
-                <h2 class="text-2xl font-semibold mb-4">Push Notifications</h2>
-                <p class="text-gray-600 mb-4">
-                    Created compelling push notifications that drive user engagement and app retention.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">App Notifications</span>
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">Browser Alerts</span>
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">Re-engagement</span>
-                </div>
-            </div>
+    <!-- Short Form Content Section -->
+    <main class="max-w-5xl mx-auto px-4 py-8 md:py-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">Short Form Content</h1>
+        
+        <!-- Short Form Content Tiles Grid -->
+        <div id="content-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Dynamic content tiles will be inserted here -->
         </div>
     </main>
+
+    <script>
+        // Array of short form content data with added link property
+        const shortFormContent = [
+            { title: "Blog Post 1", description: "A brief overview of technology advancements.", image: "shortform1.jpg", link: "blog1.html" },
+            { title: "Blog Post 2", description: "Exploring new trends in healthcare.", image: "shortform2.jpg", link: "blog2.html" },
+            { title: "Blog Post 3", description: "The future of marketing strategies.", image: "shortform3.jpg", link: "blog3.html" },
+            { title: "Blog Post 4", description: "A look at industry case studies.", image: "shortform4.jpg", link: "blog4.html" },
+            { title: "Blog Post 5", description: "Understanding modern advertising techniques.", image: "shortform5.jpg", link: "blog5.html" },
+            { title: "Blog Post 6", description: "Insights on data-driven marketing.", image: "shortform6.jpg", link: "blog6.html" },
+            { title: "Blog Post 7", description: "Exploring trends in real estate.", image: "shortform7.jpg", link: "blog7.html" },
+            { title: "Blog Post 8", description: "Technological innovations in finance.", image: "shortform8.jpg", link: "blog8.html" },
+            { title: "Blog Post 9", description: "What’s next in sustainable architecture?", image: "shortform9.jpg", link: "blog9.html" },
+            { title: "Blog Post 10", description: "A guide to effective content marketing.", image: "shortform10.jpg", link: "blog10.html" },
+            { title: "Blog Post 11", description: "Understanding the basics of UX design.", image: "shortform11.jpg", link: "blog11.html" },
+            { title: "Blog Post 12", description: "The impact of AI on modern industries.", image: "shortform12.jpg", link: "blog12.html" },
+            { title: "Blog Post 13", description: "How digital transformation is shaping business.", image: "shortform13.jpg", link: "blog13.html" },
+            { title: "Blog Post 14", description: "An overview of new tech startups.", image: "shortform14.jpg", link: "blog14.html" },
+            { title: "Blog Post 15", description: "The rise of remote working in 2024.", image: "shortform15.jpg", link: "blog15.html" },
+            { title: "Blog Post 16", description: "Trends in social media marketing.", image: "shortform16.jpg", link: "blog16.html" },
+            { title: "Blog Post 17", description: "Designing efficient business strategies.", image: "shortform17.jpg", link: "blog17.html" },
+            { title: "Blog Post 18", description: "Exploring content creation for brands.", image: "shortform18.jpg", link: "blog18.html" },
+            { title: "Blog Post 19", description: "What we learned from recent case studies.", image: "shortform19.jpg", link: "blog19.html" },
+            { title: "Blog Post 20", description: "Latest insights in e-commerce growth.", image: "shortform20.jpg", link: "blog20.html" },
+            { title: "Blog Post 21", description: "The power of personal branding.", image: "shortform21.jpg", link: "blog21.html" },
+        ];
+
+        // Function to render the short form content tiles
+        function renderShortFormContent() {
+            const gridContainer = document.getElementById("content-grid");
+
+            // Loop through the shortFormContent array
+            shortFormContent.forEach(content => {
+                // Create a new content tile element wrapped in an anchor
+                const contentTile = document.createElement("a");
+                contentTile.href = content.link; // Set the link for the content
+                contentTile.target = "_blank"; // Opens the link in a new tab
+                contentTile.classList.add("content-tile", "bg-white", "rounded-lg", "shadow-md", "p-4", "text-center", "block");
+
+                // Set the inner HTML of the content tile
+                contentTile.innerHTML = `
+                    <img src="${content.image}" alt="${content.title} Image" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">${content.title}</h2>
+                    <p class="text-gray-600">${content.description}</p>
+                `;
+
+                // Append the content tile to the grid container
+                gridContainer.appendChild(contentTile);
+            });
+        }
+
+        // Call the function to render content when the page loads
+        renderShortFormContent();
+    </script>
 </body>
 </html>
