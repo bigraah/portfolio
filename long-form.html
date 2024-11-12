@@ -21,12 +21,10 @@
             margin: 2rem auto;
         }
 
-        .pdf-placeholder {
+        .pdf-frame {
             width: 100%;
             height: 80vh;
             border: none;
-            background: #f8f9fa;
-            border-radius: 4px;
         }
     </style>
 </head>
@@ -41,13 +39,13 @@
         </div>
     </nav>
 
-    <!-- Book-style container with placeholder -->
+    <!-- Book-style container with iframe -->
     <div class="book-container">
-        <embed 
+        <iframe 
             src="Book.pdf"
-            type="application/pdf"
-            class="pdf-placeholder"
-        />
+            class="pdf-frame"
+            title="Book PDF"
+        ></iframe>
     </div>
 
     <main class="max-w-5xl mx-auto px-4 py-12">
