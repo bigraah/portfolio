@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bigrah's Portfolio - Long Form Content</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .content-tile {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -13,64 +13,105 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
     </style>
 </head>
-<body class="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+<body class="bg-gray-50 min-h-screen">
     <!-- Navbar -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-xl font-bold text-gray-800">BPP</a>
-                <a href="index.html" class="text-gray-600 hover:text-blue-600 transition">← Back to Home</a>
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-sm shadow-sm z-50 p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="font-bold text-xl text-blue-600">Home</a>
+            <div class="flex space-x-6">
+                <a href="my_work.html" class="text-gray-600 hover:text-blue-600 transition">My Work</a>
+                <a href="index.html#contact" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Short Form Content Section -->
-    <main class="max-w-5xl mx-auto px-4 py-8 md:py-12">
-        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">Long Form Content</h1>
-        
-        <!-- Short Form Content Tiles Grid -->
-        <div id="content-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto p-4 md:p-6">
+        <div class="text-center mb-12 fade-in">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Long Form Content</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                In-depth articles and comprehensive content pieces crafted for leading brands and publications.
+            </p>
+        </div>
+       
+        <div id="content-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 fade-in delay-1">
             <!-- Dynamic content tiles will be inserted here -->
         </div>
     </main>
 
     <script>
-        // Array of short form content data with added link property
-        const shortFormContent = [
-            { title: "Tidyhire", description: "AI assisted outbound hiring", image: "tidyhire.jpg", link: "tidyhire.html" },
-            { title: "Peakflo", description: "Automates and streamlines B2B finance operations", image: "peakflo.png", link: "blog2.html" },
-            { title: "SiliconMedia Publishing", description: "Parent company for 100+ B2B Magazines", image: "silicon.png", link: "blog3.html" },
-
+        // Array of long form content data
+        const longFormContent = [
+            { 
+                title: "Tidyhire", 
+                description: "AI assisted outbound hiring", 
+                image: "tidyhire.jpg", 
+                link: "tidyhire.html",
+                category: "Technology"
+            },
+            { 
+                title: "Peakflo", 
+                description: "Automates and streamlines B2B finance operations", 
+                image: "peakflo.png", 
+                link: "blog2.html",
+                category: "Finance"
+            },
+            { 
+                title: "SiliconMedia Publishing", 
+                description: "Parent company for 100+ B2B Magazines", 
+                image: "silicon.png", 
+                link: "blog3.html",
+                category: "Publishing"
+            }
         ];
 
-        // Function to render the short form content tiles
-        function renderShortFormContent() {
+        // Function to render the content tiles
+        function renderLongFormContent() {
             const gridContainer = document.getElementById("content-grid");
-
-            // Loop through the shortFormContent array
-            shortFormContent.forEach(content => {
-                // Create a new content tile element wrapped in an anchor
+            
+            longFormContent.forEach(content => {
                 const contentTile = document.createElement("a");
-                contentTile.href = content.link; // Set the link for the content
-                contentTile.target = "_blank"; // Opens the link in a new tab
-                contentTile.classList.add("content-tile", "bg-white", "rounded-lg", "shadow-md", "p-4", "text-center", "block");
+                contentTile.href = content.link;
+                contentTile.classList.add(
+                    "content-tile", 
+                    "bg-white", 
+                    "rounded-xl", 
+                    "shadow-sm", 
+                    "overflow-hidden", 
+                    "block"
+                );
 
-                // Set the inner HTML of the content tile
                 contentTile.innerHTML = `
-                    <img src="${content.image}" alt="${content.title} Image" class="w-full h-40 object-cover rounded-md mb-4">
-                    <h2 class="text-xl font-bold text-gray-800">${content.title}</h2>
-                    <p class="text-gray-600">${content.description}</p>
+                    <img 
+                        src="${content.image}" 
+                        alt="${content.title}" 
+                        class="w-full h-48 object-cover"
+                    >
+                    <div class="p-6">
+                        <span class="text-blue-600 text-sm font-medium">${content.category}</span>
+                        <h2 class="text-xl font-bold mt-2 mb-3">${content.title}</h2>
+                        <p class="text-gray-600">${content.description}</p>
+                    </div>
                 `;
-
-                // Append the content tile to the grid container
+                
                 gridContainer.appendChild(contentTile);
             });
         }
 
-        // Call the function to render content when the page loads
-        renderShortFormContent();
+        // Render content when the page loads
+        document.addEventListener('DOMContentLoaded', renderLongFormContent);
     </script>
 </body>
 </html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blogs - Bigrah Prasad Panda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-sm shadow-sm z-50 p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="font-bold text-xl text-blue-600">Home</a>
+            <div class="flex space-x-6">
+                <a href="my_work.html" class="text-gray-600 hover:text-blue-600 transition">My Work</a>
+                <a href="index.html#contact" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-6">
+        <!-- Page Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 fade-in">My Blogs</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto fade-in delay-1">
+                Exploring thoughts and insights on content creation, technology, and industry trends.
+            </p>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 fade-in delay-2">
+            <!-- Water Bottle Blog Post with Correct Details -->
+            <a href="waterbottle.html" class="blog-card bg-white rounded-xl shadow-sm overflow-hidden">
+                <img src="bottle.png" alt="Water bottle" class="w-full h-48 object-cover"/>
+                <div class="p-6">
+                    <span class="text-green-600 text-sm font-medium">Buying Guide</span>
+                    <h2 class="text-xl font-bold mt-2 mb-3">The 2l Water Bottle Paradox</h2>
+                    <p class="text-gray-600 mb-4">Water Bottle Buying Guide</p>
+                </div>
+            </a>
+
+            <article class="blog-card bg-white rounded-xl shadow-sm overflow-hidden">
+                <img src="/api/placeholder/400/200" alt="Blog thumbnail" class="w-full h-48 object-cover"/>
+                <div class="p-6">
+                    <span class="text-green-600 text-sm font-medium">Technology</span>
+                    <h2 class="text-xl font-bold mt-2 mb-3">The Future of Content Creation</h2>
+                    <p class="text-gray-600 mb-4">Exploring how AI and new technologies are reshaping the content landscape...</p>
+                    <span class="text-sm text-gray-500">Oct 15, 2023</span>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-xl shadow-sm overflow-hidden">
+                <img src="/api/placeholder/400/200" alt="Blog thumbnail" class="w-full h-48 object-cover"/>
+                <div class="p-6">
+                    <span class="text-green-600 text-sm font-medium">Industry Insights</span>
+                    <h2 class="text-xl font-bold mt-2 mb-3">Content Strategy in 2024</h2>
+                    <p class="text-gray-600 mb-4">Key trends and strategies that are defining content marketing...</p>
+                    <span class="text-sm text-gray-500">Nov 2, 2023</span>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-xl shadow-sm overflow-hidden">
+                <img src="/api/placeholder/400/200" alt="Blog thumbnail" class="w-full h-48 object-cover"/>
+                <div class="p-6">
+                    <span class="text-green-600 text-sm font-medium">Personal Growth</span>
+                    <h2 class="text-xl font-bold mt-2 mb-3">My Writing Journey</h2>
+                    <p class="text-gray-600 mb-4">Lessons learned from years of professional content creation...</p>
+                    <span class="text-sm text-gray-500">Dec 1, 2023</span>
+                </div>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tidyhire Content Portfolio - Bigrah's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <style>
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+        .article-card {
+            transition: all 0.3s ease;
+            break-inside: avoid;
+        }
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .process-card {
+            transition: all 0.3s ease;
+        }
+        .process-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .tab-btn.active {
+            color: #2563eb;
+            border-color: #2563eb;
+        }
+        .masonry-grid {
+            columns: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid {
+                columns: 2;
+            }
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                columns: 3;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                columns: 4;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-sm shadow-sm z-50 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="font-bold text-xl text-blue-600">Home</a>
+            <div class="flex space-x-6">
+                <a href="my_work.html" class="text-gray-600 hover:text-blue-600 transition">My Work</a>
+                <a href="my_blogs.html" class="text-gray-600 hover:text-blue-600 transition">Blogs</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-6">
+        <!-- Header -->
+        <div class="max-w-3xl mx-auto text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Tidyhire Content Portfolio</h1>
+            <p class="text-gray-600">Strategic content development for UAE's emerging HR tech platform</p>
+        </div>
+
+        <div class="mb-8 border-b sticky top-16 bg-gray-50/80 backdrop-blur-sm z-40">
+            <div class="max-w-3xl mx-auto flex space-x-8 justify-center"> <!-- Add justify-center here -->
+                <button class="tab-btn active px-4 py-2 text-gray-600 border-b-2 border-transparent hover:text-blue-600" 
+                        onclick="switchTab('overview')">Overview</button>
+                <button class="tab-btn px-4 py-2 text-gray-600 border-b-2 border-transparent hover:text-blue-600" 
+                        onclick="switchTab('process')">Process</button>
+                <button class="tab-btn px-4 py-2 text-gray-600 border-b-2 border-transparent hover:text-blue-600" 
+                        onclick="switchTab('challenges')">Challenges</button>
+                <button class="tab-btn px-4 py-2 text-gray-600 border-b-2 border-transparent hover:text-blue-600" 
+                        onclick="switchTab('articles')">Articles</button>
+            </div>
+        </div>
+        
+
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Project Background</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <p>Tidyhire is an AI-assisted platform that automates outbound hiring, revolutionizing how recruiters connect with potential candidates. While the founders maintained a strong LinkedIn presence, the brand lacked a comprehensive content footprint.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-900 mb-2">Key Challenge</h3>
+                            <p class="text-blue-800">Building an online presence from scratch, specifically targeting the UAE region with high-quality, relevant content.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Target Audience</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 font-bold">•</span>
+                                Recruiters and HR professionals
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 font-bold">•</span>
+                                Founders and business leaders
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 font-bold">•</span>
+                                Small to large enterprises seeking to optimize recruitment
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-600 font-bold">•</span>
+                                Recruiting teams looking to automate processes
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Content Strategy</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="font-semibold mb-3">Primary Objectives</h3>
+                                <ul class="space-y-2">
+                                    <li>• Establish brand authority</li>
+                                    <li>• Create educational resources</li>
+                                    <li>• Drive organic traffic</li>
+                                    <li>• Support UAE market expansion</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-3">Content Focus</h3>
+                                <ul class="space-y-2">
+                                    <li>• AI in recruitment</li>
+                                    <li>• HR technology trends</li>
+                                    <li>• Regional hiring practices</li>
+                                    <li>• Automation strategies</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Process Tab -->
+        <div id="process" class="tab-content">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <!-- Research Methodology -->
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Research Methodology</h2>
+                    <div class="space-y-6">
+                        <div class="process-card bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-semibold text-blue-900 mb-4">Primary Research Sources</h3>
+                            <ul class="space-y-3 text-blue-800">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    Deep dive into r/recruiting and related subreddits for real recruiter pain points
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    Analysis of G2 reviews for competitor tools to understand user needs
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    Study of technical white papers and research papers
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    Monitoring industry forums and LinkedIn discussions
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Content Development Workflow -->
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Content Development Workflow</h2>
+                    <div class="space-y-6">
+                        <div class="process-card p-6 border rounded-lg">
+                            <h3 class="font-semibold mb-4 text-purple-900">1. Topic Research & Validation</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-purple-600 font-bold">•</span>
+                                    Topic clustering based on keyword research
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-purple-600 font-bold">•</span>
+                                    Validation against competitor content gaps
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-purple-600 font-bold">•</span>
+                                    Cross-referencing with Reddit discussions for relevance
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="process-card p-6 border rounded-lg">
+                            <h3 class="font-semibold mb-4 text-green-900">2. Content Architecture</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-600 font-bold">•</span>
+                                    Standard template development ensuring consistency
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-600 font-bold">•</span>
+                                    Style guide creation for HR tech terminology
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-600 font-bold">•</span>
+                                    Structured hierarchy for technical vs strategic content
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="process-card p-6 border rounded-lg">
+                            <h3 class="font-semibold mb-4 text-orange-900">3. Quality Control Process</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-orange-600 font-bold">•</span>
+                                    Technical accuracy check against white papers
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-orange-600 font-bold">•</span>
+                                    Practical validation against real recruiting workflows
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-orange-600 font-bold">•</span>
+                                    SEO optimization without compromising depth
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        </div>
+
+        <!-- Challenges Tab -->
+        <div id="challenges" class="tab-content">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <!-- Technical Complexity -->
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Technical Complexity</h2>
+                    <div class="bg-red-50 p-6 rounded-lg">
+                        <ul class="space-y-4 text-red-800">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                </svg>
+                                Explaining AI concepts to non-technical HR professionals
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                </svg>
+                                Balancing technical depth with practical usability
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                </svg>
+                                Making complex Boolean search concepts accessible
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Industry Requirements -->
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Industry Requirements</h2>
+                    <div class="bg-yellow-50 p-6 rounded-lg">
+                        <ul class="space-y-4 text-yellow-800">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                UAE region-specific recruitment regulations
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Data privacy considerations in recruitment
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Cross-border hiring complexities
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Unique Challenges -->
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Unique Challenges</h2>
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <ul class="space-y-4 text-purple-800">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Maintaining consistent voice across technical and strategic topics
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Balancing vendor neutrality with platform benefits
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Keeping content evergreen despite rapid tech evolution
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+        </div>
+
+        <!-- Articles Tab -->
+        <style>
+            .masonry-grid {
+                columns: 1;
+                column-gap: 1.5rem;
+            }
+            
+            @media (min-width: 768px) {
+                .masonry-grid {
+                    columns: 2;
+                }
+            }
+            
+            @media (min-width: 1280px) {
+                .masonry-grid {
+                    columns: 3;
+                }
+            }
+            
+            .article-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 1.5rem;
+                transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            }
+            
+            .article-card:hover {
+                transform: translateY(-2px);
+            }
+        </style>
+    </head>
+    <body class="bg-gray-50">
+        <div class="max-w-7xl mx-auto p-4 md:p-6">
+            <!-- Content Container -->
+            <div class="masonry-grid">
+                <!-- AI & Future Section -->
+                <div class="mb-12 p-6 bg-blue-50 rounded-xl w-full">
+                    <h2 class="text-2xl font-bold text-blue-900 mb-4">AI & Future of Recruitment</h2>
+                    <p class="text-blue-700 mb-8">Exploring the intersection of artificial intelligence and recruitment processes</p>
+                </div>
+    
+                <!-- AI Articles -->
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">AI Future</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">Will AI Replace Human Recruiters?</h3>
+                        <div class="prose text-gray-600">
+                            <p class="mb-4">AI is reducing the time to hire and personalizing recruitment. This massive improvement raises a few questions. You've seen it everywhere—articles, headlines, and conversations all asking the same question: Will AI take my job?</p>
+                            <p class="mb-4">It's a concern that doesn't seem to be going away. In fact, throughout 2024, interest in this question spiked several times, with search data showing an average interest rate of 24% across the year.</p>
+                            <p>AI can filter resumes, schedule interviews, and sort through mountains of data in seconds. But here's the real question: Can it do what you do? Can it replace the human touch in recruitment — the judgment, the relationships, the instincts?</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">AI Challenges</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">Navigating the Challenges of AI in Recruitment</h3>
+                        <div class="prose text-gray-600">
+                            <p class="mb-4">Skepticism over something new is normal and understandable. Take the discovery of electricity. When Benjamin Franklin conducted his famous kite experiment, people were both amazed and wary. How could something invisible and unpredictable be harnessed for good?</p>
+                            <p class="mb-4">Fast forward to today, and it's clear that electricity powers nearly every aspect of our lives. What once seemed strange and dangerous is now essential. The same cautious optimism surrounds AI in recruitment.</p>
+                            <p>AI is taking over many parts of the hiring process; on the surface, it sounds like a perfect match. But it's not all sunshine and efficiency. AI in recruitment comes with its own headaches that, if not properly managed, could derail your hiring goals.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <!-- Tools Section -->
+                <div class="mb-12 p-6 bg-purple-50 rounded-xl w-full">
+                    <h2 class="text-2xl font-bold text-purple-900 mb-4">Tools & Platform Guides</h2>
+                    <p class="text-purple-700 mb-8">Essential tools and platforms for modern recruitment</p>
+                </div>
+    
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Tools</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">Useful Chrome Extensions for Recruiters and Sourcers</h3>
+                        <div class="prose text-gray-600">
+                            <p class="mb-4">It's the Chrome Extension's world, and we are living in it!</p>
+                            <p class="mb-4">Chrome extensions can do it all, from managing tabs to streamlining online shopping. So, why not extend this incredible functionality and efficiency to your hiring efforts?</p>
+                            <p>With the right extensions, you can find candidates' emails and phone numbers faster. You can send personalized emails without breaking a sweat. And you can keep track of all your communication without losing your mind.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Tool Analysis</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">LinkedIn Recruiter Alternatives for Smarter Hiring in 2024</h3>
+                        <div class="prose text-gray-600">
+                            <p>When you're searching for top talent, LinkedIn Recruiter might seem like the obvious choice. But it's far from the only tool out there. In fact, many alternatives provide the same—or even better—features at a fraction of the cost. Whether you're looking to cut down on expenses or improve your hiring process, finding the right alternative can make a significant difference.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Strategy Guide</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">Steps to Find and Hire Developers for a Startup</h3>
+                        <div class="prose text-gray-600">
+                            <p>Finding a tech co-founder is often seen as the hardest step for non-tech startup founders. But once you've got that essential partner on board, the real work begins—scaling your team.</p>
+                            <p>Hiring developers can either push your startup forward or hold it back. Nearly 90% of business leaders admit that recruiting and retaining top talent is a significant challenge.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">AI Implementation</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">Using AI in Recruiting: Techniques and Tools</h3>
+                        <div class="prose text-gray-600">
+                            <p>Recruitment has always been a human-centered process, where you evaluate candidates based on their skills, communication, and how they fit into your team.</p>
+                            <p>But where does AI fit into this? Can something considered "impersonal" really improve a process that relies on human connection?</p>
+                            <p>The truth is, AI isn't here to replace the human aspect—it's here to enhance it. AI has seen rapid adoption in hiring, with more companies realizing its potential to save time and improve accuracy. In fact, the global AI market is expected to reach 1,597.1 billion in 2030, showing just how important using AI for recruiting will become.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Software Guide</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">Top Staffing Agency Software for Recruitment in 2024</h3>
+                        <div class="prose text-gray-600">
+                            <p>Have you ever tried putting a nail in the wall with your bare hands? That's how it feels to hire candidates without the right recruitment software for your recruitment agency in 2024. Staffing agencies these days can use recruitment software to track candidates effectively.</p>
+                            <p>The competitive market and rapid hiring demands make automation software absolutely essential, allowing you to focus on engaging with high-quality candidates. The right recruitment software enhances efficiency, minimizes manual processes, and ensures compliance, which directly impacts your bottom line.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-green-50 text-green-600 px-3 py-1 rounded-full text-sm font-medium">Industry Focus</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">Transforming Manufacturing Recruitment Using AI</h3>
+                        <div class="prose text-gray-600">
+                            <p>What if you could turn a looming crisis in manufacturing recruitment into your most significant opportunity?</p>
+                            <p>By 2033, the industry faced a mammoth challenge: 4.6 million job openings, with the potential for 2.1 million to remain unfilled. As a recruiter, this scenario paints a daunting picture, but it doesn't have to be your reality. What if there was a tool that could manage this challenge and transform it into a competitive edge? This is where Artificial Intelligence (AI) comes in—your strategic relief for the recruitment headache.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-purple-50 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Tools Guide</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">Using Recruitment Tools for Hiring Process in 2024</h3>
+                        <div class="prose text-gray-600">
+                            <p>You hired a young engineer in 1992. At the time, it seemed like a standard addition to your team. Fast-forward to 2014, and that same engineer becomes the CEO. Under his leadership, your company achieves remarkable growth and innovation. His focus on cloud computing and AI reshapes the company's direction.</p>
+                            <p>No, it's not a déjà vu of your daydream but the story of Satya Nadella and Microsoft—a real-world example of how a single hire can transform your company.</p>
+                            <p>To replicate this today at scale, you need advanced recruitment tools to help you find these potential game-changers more efficiently. Recruitment tools allow your HR team to streamline the hiring process, automate repetitive tasks, and improve candidate engagement. These intelligent systems free up your time so you can focus on building relationships with suitable candidates.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="article-card bg-white rounded-xl shadow-sm">
+                    <div class="p-6">
+                        <span class="bg-green-50 text-green-600 px-3 py-1 rounded-full text-sm font-medium">Market Research</span>
+                        <h3 class="text-xl font-bold mt-3 mb-4">Top Recruitment Agencies in UAE</h3>
+                        <div class="prose text-gray-600">
+                            <p>Hiring the right talent in the UAE secures a competitive edge for your growth. This is even more important now that 50% of organizations think the talent competition is going to increase.</p>
+                            <p>As a recruiter, you face the pressure of finding top candidates in a market that is teeming with options but often short on time. Whether you're working with startups, established companies, or high-growth businesses, partnering with a proven recruitment agency can make all the difference in sourcing and securing the best talent quickly.</p>
+                        </div>
+                    </div>
+                </article>
+    
+            </div>
+        </div>
+    
+            </div>
+        </div>
+<script>
+    // Initialize Masonry grid
+    var grid = document.querySelector('.masonry-grid');
+    var masonry = new Masonry(grid, {
+        itemSelector: '.article-card',
+        columnWidth: '.article-card',
+        percentPosition: true
+    });
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            // Add filter logic here
+        });
+    });
+</script>
+        <div id="articles" class="tab-content">
+            <!-- Content for Articles tab -->
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update tab button styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

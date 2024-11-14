@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bigrah's Portfolio - Short Form Content</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .content-tile {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -13,81 +13,99 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
     </style>
 </head>
-<body class="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+<body class="bg-gray-50 min-h-screen">
     <!-- Navbar -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-xl font-bold text-gray-800">BPP</a>
-                <a href="index.html" class="text-gray-600 hover:text-blue-600 transition">← Back to Home</a>
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-sm shadow-sm z-50 p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="font-bold text-xl text-blue-600">Home</a>
+            <div class="flex space-x-6">
+                <a href="my_work.html" class="text-gray-600 hover:text-blue-600 transition">My Work</a>
+                <a href="index.html#contact" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Short Form Content Section -->
-    <main class="max-w-5xl mx-auto px-4 py-8 md:py-12">
-        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">Short Form Content</h1>
-        
-        <!-- Short Form Content Tiles Grid -->
-        <div id="content-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto p-4 md:p-6">
+        <div class="text-center mb-12 fade-in">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Short Form Content</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Impactful, concise content pieces crafted for various platforms and purposes.
+            </p>
+        </div>
+       
+        <div id="content-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 fade-in delay-1">
             <!-- Dynamic content tiles will be inserted here -->
         </div>
     </main>
 
     <script>
-        // Array of short form content data with added link property
+        // Array of short form content data
         const shortFormContent = [
-            { title: "Copies that got me shortlisted at Groww", description: "Provides online investment platform for stocks, mutual funds, and more", image: "groww.jpg", link: "blog1.html" },
-            { title: "Copies that got me shortlisted at SnapMint", description: "Offers cardless, paperless EMI shopping platform", image: "Snapmint.jpg", link: "blog2.html" },
-            { title: "Blog Post 3", description: "The future of marketing strategies.", image: "shortform3.jpg", link: "blog3.html" },
-            { title: "Blog Post 4", description: "A look at industry case studies.", image: "shortform4.jpg", link: "blog4.html" },
-            { title: "Blog Post 5", description: "Understanding modern advertising techniques.", image: "shortform5.jpg", link: "blog5.html" },
-            { title: "Blog Post 6", description: "Insights on data-driven marketing.", image: "shortform6.jpg", link: "blog6.html" },
-            { title: "Blog Post 7", description: "Exploring trends in real estate.", image: "shortform7.jpg", link: "blog7.html" },
-            { title: "Blog Post 8", description: "Technological innovations in finance.", image: "shortform8.jpg", link: "blog8.html" },
-            { title: "Blog Post 9", description: "What’s next in sustainable architecture?", image: "shortform9.jpg", link: "blog9.html" },
-            { title: "Blog Post 10", description: "A guide to effective content marketing.", image: "shortform10.jpg", link: "blog10.html" },
-            { title: "Blog Post 11", description: "Understanding the basics of UX design.", image: "shortform11.jpg", link: "blog11.html" },
-            { title: "Blog Post 12", description: "The impact of AI on modern industries.", image: "shortform12.jpg", link: "blog12.html" },
-            { title: "Blog Post 13", description: "How digital transformation is shaping business.", image: "shortform13.jpg", link: "blog13.html" },
-            { title: "Blog Post 14", description: "An overview of new tech startups.", image: "shortform14.jpg", link: "blog14.html" },
-            { title: "Blog Post 15", description: "The rise of remote working in 2024.", image: "shortform15.jpg", link: "blog15.html" },
-            { title: "Blog Post 16", description: "Trends in social media marketing.", image: "shortform16.jpg", link: "blog16.html" },
-            { title: "Blog Post 17", description: "Designing efficient business strategies.", image: "shortform17.jpg", link: "blog17.html" },
-            { title: "Blog Post 18", description: "Exploring content creation for brands.", image: "shortform18.jpg", link: "blog18.html" },
-            { title: "Blog Post 19", description: "What we learned from recent case studies.", image: "shortform19.jpg", link: "blog19.html" },
-            { title: "Blog Post 20", description: "Latest insights in e-commerce growth.", image: "shortform20.jpg", link: "blog20.html" },
-            { title: "Blog Post 21", description: "The power of personal branding.", image: "shortform21.jpg", link: "blog21.html" },
+            { 
+                title: "Copies that got me shortlisted at Groww", 
+                description: "Provides online investment platform for stocks, mutual funds, and more", 
+                image: "groww.jpg", 
+                link: "groww.html",
+                category: "Finance"
+            },
+            { 
+                title: "Copies that got me shortlisted at SnapMint", 
+                description: "Offers cardless, paperless EMI shopping platform", 
+                image: "Snapmint.jpg", 
+                link: "snapmint.html",
+                category: "Fintech"
+            }
+            // ... You can add the rest of your posts here with categories
         ];
 
-        // Function to render the short form content tiles
+        // Function to render the content tiles
         function renderShortFormContent() {
             const gridContainer = document.getElementById("content-grid");
-
-            // Loop through the shortFormContent array
+            
             shortFormContent.forEach(content => {
-                // Create a new content tile element wrapped in an anchor
                 const contentTile = document.createElement("a");
-                contentTile.href = content.link; // Set the link for the content
-                contentTile.target = "_blank"; // Opens the link in a new tab
-                contentTile.classList.add("content-tile", "bg-white", "rounded-lg", "shadow-md", "p-4", "text-center", "block");
+                contentTile.href = content.link;
+                contentTile.classList.add(
+                    "content-tile", 
+                    "bg-white", 
+                    "rounded-xl", 
+                    "shadow-sm", 
+                    "overflow-hidden", 
+                    "block"
+                );
 
-                // Set the inner HTML of the content tile
                 contentTile.innerHTML = `
-                    <img src="${content.image}" alt="${content.title} Image" class="w-full h-40 object-cover rounded-md mb-4">
-                    <h2 class="text-xl font-bold text-gray-800">${content.title}</h2>
-                    <p class="text-gray-600">${content.description}</p>
+                    <img 
+                        src="${content.image}" 
+                        alt="${content.title}" 
+                        class="w-full h-48 object-cover"
+                    >
+                    <div class="p-6">
+                        <span class="text-purple-600 text-sm font-medium">${content.category}</span>
+                        <h2 class="text-xl font-bold mt-2 mb-3">${content.title}</h2>
+                        <p class="text-gray-600">${content.description}</p>
+                    </div>
                 `;
-
-                // Append the content tile to the grid container
+                
                 gridContainer.appendChild(contentTile);
             });
         }
 
-        // Call the function to render content when the page loads
-        renderShortFormContent();
+        // Render content when the page loads
+        document.addEventListener('DOMContentLoaded', renderShortFormContent);
     </script>
 </body>
 </html>
