@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peakflo Content Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+        .article-card {
+            transition: all 0.3s ease;
+            break-inside: avoid;
+        }
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .tab-btn.active {
+            color: #38bdf8;
+            border-color: #38bdf8;
+        }
+        .masonry-grid {
+            columns: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid {
+                columns: 2;
+            }
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                columns: 3;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-sm shadow-sm z-50 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="font-bold text-xl text-blue-600">Home</a>
+            <div class="flex space-x-6">
+                <a href="my_work.html" class="text-gray-600 hover:text-blue-600 transition">My Work</a>
+                <a href="my_blogs.html" class="text-gray-600 hover:text-blue-600 transition">Blogs</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-6">
+        <!-- Header -->
+        <div class="max-w-3xl mx-auto text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Peakflo Content Portfolio</h1>
+            <p class="text-gray-600">Strategic content development for modern financial operations platform</p>
+        </div>
+
+        <div class="mb-8 border-b sticky top-16 bg-gray-50/80 backdrop-blur-sm z-40">
+            <div class="max-w-3xl mx-auto flex space-x-8 justify-center">
+                <button class="tab-btn active px-4 py-2 text-gray-600 border-b-2 border-transparent hover:text-sky-600"
+                        onclick="switchTab('overview')">Overview</button>
+                <button class="tab-btn px-4 py-2 text-gray-600 border-b-2 border-transparent hover:text-sky-600"
+                        onclick="switchTab('process')">Process</button>
+                <button class="tab-btn px-4 py-2 text-gray-600 border-b-2 border-transparent hover:text-sky-600"
+                        onclick="switchTab('challenges')">Challenges</button>
+                <button class="tab-btn px-4 py-2 text-gray-600 border-b-2 border-transparent hover:text-sky-600"
+                        onclick="switchTab('articles')">Articles</button>
+            </div>
+        </div>
+
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Project Background</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <p>Peakflo is an automated accounts payable and accounts receivable solution that streamlines financial processes for businesses. While the platform offered powerful automation capabilities, there was a need to educate the market about modern financial operations.</p>
+                        <div class="bg-sky-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-sky-900 mb-2">Key Challenge</h3>
+                            <p class="text-sky-800">Building comprehensive educational content that bridges the gap between traditional financial operations and modern automation solutions.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Target Audience</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><span class="text-sky-600 font-bold">•</span> Finance teams and accounting departments</li>
+                            <li class="flex items-start gap-3"><span class="text-sky-600 font-bold">•</span> Business owners and CFOs</li>
+                            <li class="flex items-start gap-3"><span class="text-sky-600 font-bold">•</span> Scale-ups to enterprises seeking financial automation</li>
+                            <li class="flex items-start gap-3"><span class="text-sky-600 font-bold">•</span> Companies looking to optimize AP/AR processes</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6">Content Strategy</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-semibold mb-3">Primary Objectives</h3>
+                            <ul class="space-y-2">
+                                <li>• Establish thought leadership</li>
+                                <li>• Drive awareness of automation benefits</li>
+                                <li>• Support product adoption</li>
+                                <li>• Enable financial transformation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-3">Content Focus</h3>
+                            <ul class="space-y-2">
+                                <li>• Financial process automation</li>
+                                <li>• Cash flow optimization</li>
+                                <li>• Best practices in AP/AR</li>
+                                <li>• Modern finance operations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+                <!-- Process Tab -->
+                <div id="process" class="tab-content">
+                    <div class="max-w-3xl mx-auto space-y-8">
+                        <section class="bg-white rounded-xl shadow-sm p-6">
+                            <h2 class="text-2xl font-bold mb-6">Research Methodology</h2>
+                            <div class="space-y-6">
+                                <div class="bg-sky-50 p-6 rounded-lg">
+                                    <h3 class="font-semibold text-sky-900 mb-4">Primary Research Sources</h3>
+                                    <ul class="space-y-3 text-sky-800">
+                                        <li class="flex items-start gap-3"><span class="text-sky-600 font-bold">•</span> In-depth discussions with financial teams to identify pain points.</li>
+                                        <li class="flex items-start gap-3"><span class="text-sky-600 font-bold">•</span> Analysis of competitor tools and their positioning.</li>
+                                        <li class="flex items-start gap-3"><span class="text-sky-600 font-bold">•</span> Reviewing financial process research papers for modern strategies.</li>
+                                        <li class="flex items-start gap-3"><span class="text-sky-600 font-bold">•</span> Insights from forums like CFO Connect and Reddit Finance.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+        
+                        <section class="bg-white rounded-xl shadow-sm p-6">
+                            <h2 class="text-2xl font-bold mb-6">Content Development Workflow</h2>
+                            <div class="space-y-6">
+                                <div class="p-6 border rounded-lg">
+                                    <h3 class="font-semibold mb-4 text-sky-900">1. Topic Research & Validation</h3>
+                                    <ul class="space-y-3 text-gray-600">
+                                        <li><span class="text-sky-600 font-bold">•</span> Identifying content opportunities via keyword research.</li>
+                                        <li><span class="text-sky-600 font-bold">•</span> Aligning topics with CFO and accounting pain points.</li>
+                                        <li><span class="text-sky-600 font-bold">•</span> Validating relevance through industry surveys.</li>
+                                    </ul>
+                                </div>
+        
+                                <div class="p-6 border rounded-lg">
+                                    <h3 class="font-semibold mb-4 text-green-900">2. Content Architecture</h3>
+                                    <ul class="space-y-3 text-gray-600">
+                                        <li><span class="text-green-600 font-bold">•</span> Developing templates for long-form guides and blogs.</li>
+                                        <li><span class="text-green-600 font-bold">•</span> Creating a style guide for consistent tone.</li>
+                                        <li><span class="text-green-600 font-bold">•</span> Structuring content with clear hierarchies for readability.</li>
+                                    </ul>
+                                </div>
+        
+                                <div class="p-6 border rounded-lg">
+                                    <h3 class="font-semibold mb-4 text-orange-900">3. Quality Control Process</h3>
+                                    <ul class="space-y-3 text-gray-600">
+                                        <li><span class="text-orange-600 font-bold">•</span> Ensuring financial accuracy through team reviews.</li>
+                                        <li><span class="text-orange-600 font-bold">•</span> Optimizing content for SEO while maintaining depth.</li>
+                                        <li><span class="text-orange-600 font-bold">•</span> Validating content against real-world use cases.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+        
+                <!-- Challenges Tab -->
+                <div id="challenges" class="tab-content">
+                    <div class="max-w-3xl mx-auto space-y-8">
+                        <section class="bg-white rounded-xl shadow-sm p-6">
+                            <h2 class="text-2xl font-bold mb-6">Technical Complexity</h2>
+                            <div class="bg-red-50 p-6 rounded-lg">
+                                <ul class="space-y-4 text-red-800">
+                                    <li class="flex items-start gap-3"><span class="text-red-600 font-bold">•</span> Educating non-technical users about AP/AR automation concepts.</li>
+                                    <li class="flex items-start gap-3"><span class="text-red-600 font-bold">•</span> Balancing technical depth with accessibility for finance teams.</li>
+                                    <li class="flex items-start gap-3"><span class="text-red-600 font-bold">•</span> Communicating the ROI of adopting modern tools.</li>
+                                </ul>
+                            </div>
+                        </section>
+        
+                        <section class="bg-white rounded-xl shadow-sm p-6">
+                            <h2 class="text-2xl font-bold mb-6">Industry Requirements</h2>
+                            <div class="bg-yellow-50 p-6 rounded-lg">
+                                <ul class="space-y-4 text-yellow-800">
+                                    <li class="flex items-start gap-3"><span class="text-yellow-600 font-bold">•</span> Ensuring compliance with evolving financial regulations.</li>
+                                    <li class="flex items-start gap-3"><span class="text-yellow-600 font-bold">•</span> Addressing global operational challenges in scaling financial processes.</li>
+                                    <li class="flex items-start gap-3"><span class="text-yellow-600 font-bold">•</span> Navigating region-specific tax and accounting nuances.</li>
+                                </ul>
+                            </div>
+                        </section>
+        
+                        <section class="bg-white rounded-xl shadow-sm p-6">
+                            <h2 class="text-2xl font-bold mb-6">Unique Challenges</h2>
+                            <div class="bg-purple-50 p-6 rounded-lg">
+                                <ul class="space-y-4 text-purple-800">
+                                    <li class="flex items-start gap-3"><span class="text-purple-600 font-bold">•</span> Establishing trust in automation within conservative industries.</li>
+                                    <li class="flex items-start gap-3"><span class="text-purple-600 font-bold">•</span> Aligning automation benefits with traditional workflows.</li>
+                                    <li class="flex items-start gap-3"><span class="text-purple-600 font-bold">•</span> Keeping content evergreen amidst rapid financial tech advancements.</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+        
+<!-- Articles Tab -->
+<div id="articles" class="tab-content">
+    <div class="masonry-grid">
+        <!-- Article 1 -->
+        <article class="article-card bg-white rounded-xl shadow-sm p-6">
+            <h3 class="text-xl font-bold mb-4">
+                <a href="https://blog.peakflo.co/en/account-payable/what-is-3-way-match-in-ap-process" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">
+                    Understanding the 3-Way Matching Process in Accounts Payable
+                </a>
+            </h3>
+            <div class="prose text-gray-600">
+                <p>In accounts payable, accuracy is everything. From preventing overpayments to catching fraudulent invoices, the pressure is always on to ensure every payment is legitimate...</p>
+            </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card bg-white rounded-xl shadow-sm p-6">
+            <h3 class="text-xl font-bold mb-4">
+                <a href="https://blog.peakflo.co/en/travel-expense/travel-reimbursement-policy-best-practices" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">
+                    Steps to Implement Automated Invoice Processing
+                </a>
+            </h3>
+            <div class="prose text-gray-600">
+                <p>If you are managing invoices for your accounts payable team, you already know how much of a headache manual processing can be...</p>
+            </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card bg-white rounded-xl shadow-sm p-6">
+            <h3 class="text-xl font-bold mb-4">
+                <a href="https://blog.peakflo.co/en/learning-center/cash-flow-management-software-tools" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">
+                    Best Practices for Travel Expense Reimbursement Policy
+                </a>
+            </h3>
+            <div class="prose text-gray-600">
+                <p>As a business owner, managing travel expenses can quickly become a headache if you do not have a solid plan in place...</p>
+            </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="article-card bg-white rounded-xl shadow-sm p-6">
+            <h3 class="text-xl font-bold mb-4">
+                <a href="https://blog.peakflo.co/en/travel-expense/how-to-create-and-use-an-expense-report" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">
+                    How to Create and Use an Expense Report
+                </a>
+            </h3>
+            <div class="prose text-gray-600">
+                <p>Running a business comes with its share of surprises. From unexpected customer lunches to last-minute travel, these expenses can pile up quickly...</p>
+            </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="article-card bg-white rounded-xl shadow-sm p-6">
+            <h3 class="text-xl font-bold mb-4">
+                <a href="https://blog.peakflo.co/en/account-payable/how-to-automate-invoice-processing-implementation" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">
+                    Best Cash Flow Management Software Tools
+                </a>
+            </h3>
+            <div class="prose text-gray-600">
+                <p>Cash flow issues keeping you up at night? You are not alone. 69% of business owners struggle to sleep due to cash flow concerns...</p>
+            </div>
+        </article>
+    </div>
+</div>
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
