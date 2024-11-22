@@ -476,7 +476,7 @@
         });
 
         // Load the PDF
-        pdfjsLib.getDocument('book.pdf').promise.then(function(pdf) {
+        pdfjsLib.getDocument('Book.pdf').promise.then(function(pdf) {
             pdfDoc = pdf;
             document.getElementById('page-count').textContent = pdf.numPages;
             renderPage(pageNum);
